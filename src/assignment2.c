@@ -50,14 +50,22 @@ int linearSearchMax(int arr[], int n, int *comparisons) {
 }
 
 int main() {
-    int scores[] = {78, 92, 65, 88, 95, 72, 84, 90};
-    int n = 8;
+    int scores[MAX];
+    int n;
     int i;
     int comparisons;
     int totalComparisons = 0;
     int maxHeap, maxLinear;
 
-    printf("MAX HEAP INSERTION\n\n");
+    printf("Enter the number of students: ");
+    if (scanf("%d", &n) != 1) return 1;
+
+    printf("Enter the scores:\n");
+    for (i = 0; i < n; i++) {
+        if (scanf("%d", &scores[i]) != 1) return 1;
+    }
+
+    printf("\nMAX HEAP INSERTION\n\n");
     for (i = 0; i < n; i++) {
         comparisons = insert(scores[i]);
         totalComparisons += comparisons;
@@ -67,15 +75,17 @@ int main() {
     }
     printf("Total heap insertion comparisons: %d\n\n", totalComparisons);
 
-    maxHeap = findMaxHeap(&comparisons);
-    printf("MAXIMUM USING MAX HEAP\n");
-    printf("Maximum score: %d\n", maxHeap);
-    printf("Operations: %d\n\n", comparisons);
+    if (n > 0) {
+        maxHeap = findMaxHeap(&comparisons);
+        printf("MAXIMUM USING MAX HEAP\n");
+        printf("Maximum score: %d\n", maxHeap);
+        printf("Operations: %d\n\n", comparisons);
 
-    maxLinear = linearSearchMax(scores, n, &comparisons);
-    printf("MAXIMUM USING LINEAR SEARCH\n");
-    printf("Maximum score: %d\n", maxLinear);
-    printf("Comparisons: %d\n", comparisons);
+        maxLinear = linearSearchMax(scores, n, &comparisons);
+        printf("MAXIMUM USING LINEAR SEARCH\n");
+        printf("Maximum score: %d\n", maxLinear);
+        printf("Comparisons: %d\n", comparisons);
+    }
 
     return 0;
 }
