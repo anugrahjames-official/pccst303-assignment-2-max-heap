@@ -2,10 +2,11 @@
 
 | Operation | Max Heap | Linear Search |
 |---|---|---|
-| Find Maximum | O(1) | O(n) |
-| Insert | O(log n) | O(1) append |
-| Insert + Maintain Maximum | O(log n) | O(n) |
-| Space | O(n) | O(1) extra |
+| Find maximum | O(1) | O(n) |
+| Insert new score | O(log n) | O(1) append |
+| Insert + maintain maximum | O(log n) | O(n) if maximum is recomputed by search |
+| Effect of increasing students | Maximum access remains O(1) | Search work increases linearly |
+| Structure | Complete binary tree | Array/list scan |
 
 For the given input:
 - Max Heap maximum = 95
